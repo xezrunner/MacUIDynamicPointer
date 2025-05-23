@@ -10,7 +10,8 @@
 		219A443F2DE0CA140082525C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A443B2DE0CA140082525C /* ContentView.swift */; };
 		219A44402DE0CA140082525C /* MacUIDynamicPointerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */; };
 		219A44412DE0CA140082525C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219A443A2DE0CA140082525C /* Assets.xcassets */; };
-		219A44512DE0CE1A0082525C /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A44502DE0CE180082525C /* State.swift */; };
+		219A44512DE0CE1A0082525C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A44502DE0CE180082525C /* AppState.swift */; };
+		219A44532DE0D6AB0082525C /* DynamicPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A44522DE0D6A10082525C /* DynamicPointer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,8 @@
 		219A443C2DE0CA140082525C /* MacUIDynamicPointer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacUIDynamicPointer.entitlements; sourceTree = "<group>"; };
 		219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacUIDynamicPointerApp.swift; sourceTree = "<group>"; };
 		219A444F2DE0CB950082525C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		219A44502DE0CE180082525C /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		219A44502DE0CE180082525C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		219A44522DE0D6A10082525C /* DynamicPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPointer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,8 @@
 		219A443E2DE0CA140082525C /* MacUIDynamicPointer */ = {
 			isa = PBXGroup;
 			children = (
-				219A44502DE0CE180082525C /* State.swift */,
+				219A44522DE0D6A10082525C /* DynamicPointer.swift */,
+				219A44502DE0CE180082525C /* AppState.swift */,
 				219A443B2DE0CA140082525C /* ContentView.swift */,
 				219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */,
 				219A443A2DE0CA140082525C /* Assets.xcassets */,
@@ -136,8 +139,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				219A443F2DE0CA140082525C /* ContentView.swift in Sources */,
+				219A44532DE0D6AB0082525C /* DynamicPointer.swift in Sources */,
 				219A44402DE0CA140082525C /* MacUIDynamicPointerApp.swift in Sources */,
-				219A44512DE0CE1A0082525C /* State.swift in Sources */,
+				219A44512DE0CE1A0082525C /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

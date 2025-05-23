@@ -3,10 +3,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(State.self) private var state
+    @Environment(AppState.self) private var appState
     
     var body: some View {
-        let hasAXPermissions = state.accessibilityPermissionState ?? AXIsProcessTrusted()
+        let hasAXPermissions = appState.accessibilityPermissionState ?? AXIsProcessTrusted()
         
         if !hasAXPermissions { AXPermissionsView() }
         else                 { DebugView() }
@@ -14,19 +14,24 @@ struct ContentView: View {
 }
 
 struct DebugView: View {
+    @Environment(AppState.self) private var appState
+    
     var body: some View {
+        let elementInfo = appState.dynamicPointer.elementInfo
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(elementInfo.debugDescription)
+                .monospaced()
+            
+            Button("Test") {}
+            Button("Test 2") {}
         }
         .padding()
     }
 }
 
 struct AXPermissionsView: View {
-    @Environment(State.self) private var state
+    @Environment(AppState.self) private var appState
     
     // FIXME: What happens when the accessibility permission is suddenly taken away? How would we know?
     
@@ -35,7 +40,7 @@ struct AXPermissionsView: View {
             Text("Accessibility permissions are required").font(.title)
             Text("These permissions will be used to gather information about UI elements on screen.").font(.title3)
             
-            Button(state.accessibilityPermissionState != nil ? "Check permissions" : "Grant permissions", action: promptForPermission)
+            Button(appState.accessibilityPermissionState != nil ? "Check permissions" : "Grant permissions", action: promptForPermission)
                 .buttonStyle(.borderedProminent)
                 .padding([.horizontal, .top])
         }
@@ -45,11 +50,11 @@ struct AXPermissionsView: View {
     func promptForPermission() {
         let prompt = kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String
         let options: NSDictionary = [prompt: true]
-        state.accessibilityPermissionState = AXIsProcessTrustedWithOptions(options)
+        appState.accessibilityPermissionState = AXIsProcessTrustedWithOptions(options)
     }
 }
 
 #Preview {
     ContentView()
-        .environment(State())
+        .environment(AppState())
 }
