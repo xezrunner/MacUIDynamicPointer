@@ -27,6 +27,14 @@ struct DebugView: View {
             Button("Test 2") {}
         }
         .padding()
+        .onChange(of: elementInfo) { oldValue, newValue in
+            if newValue?.axRole == "AXButton" {
+                
+            }
+            else {
+                
+            }
+        }
     }
 }
 

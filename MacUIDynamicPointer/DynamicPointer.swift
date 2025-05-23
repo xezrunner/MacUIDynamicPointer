@@ -7,10 +7,11 @@ import AppKit
 }
 
 struct DynamicPointerElementInfo: Hashable, Equatable {
-    init(description: String, axRole: String, position: CGPoint, size: CGSize) {
+    init(enabled: Bool, description: String, axRole: String, origin: CGPoint, size: CGSize) {
+        self.enabled = enabled
         self.description = description
         self.axRole = axRole
-        self.position = position
+        self.position = CGPoint(x: origin.x + (size.width / 2), y: origin.y + (size.height / 2)) // center
         self.size = size
     }
     
@@ -21,25 +22,17 @@ struct DynamicPointerElementInfo: Hashable, Equatable {
     
     private var id: UUID = UUID()
     
+    public var enabled: Bool
     public var description: String
     public var axRole: String
     public var position: CGPoint
     public var size: CGSize
+    
+    static let EligiblilityList = [ "AXButton", "AXMenuBarItem", "AXPopUpButton", "AXDockItem", "AXMenuButton", "AXRadioButton" ]
+    var isEligibleForDynamicPointer: Bool { enabled && DynamicPointerElementInfo.EligiblilityList.contains(axRole) }
 }
 
 @Observable class DynamicPointer {
-    init() {
-        registerForPointerEvents()
-    }
-    
-    public func registerForPointerEvents() {
-        NSEvent.addLocalMonitorForEvents(matching: [.mouseMoved]) { event in
-            self.handlePointerEvents(event: event)
-            return event
-        }
-        NSEvent.addGlobalMonitorForEvents(matching: [.mouseMoved], handler: handlePointerEvents(event:))
-    }
-    
     public var info: DynamicPointerInfo = DynamicPointerInfo()
     public var elementInfo: DynamicPointerElementInfo?
     
@@ -57,18 +50,21 @@ struct DynamicPointerElementInfo: Hashable, Equatable {
         
         var elementRef: AXUIElement?
         let result = AXUIElementCopyElementAtPosition(systemWideElement, Float(point.x), Float(point.y), &elementRef)
-
+        
         guard result == .success, let element = elementRef else {
             elementInfo = nil
             return nil
         }
         
         let eInfo = DynamicPointerElementInfo(
+            enabled:     getBoolAttribute(element, kAXEnabledAttribute as CFString) ?? false,
             description: getStringAttribute(element, kAXDescriptionAttribute as CFString) ?? "",
             axRole:      getStringAttribute(element, kAXRoleAttribute as CFString) ?? "",
-            position:    getPositionAttribute(element) ?? CGPoint.zero,
+            origin:      getPositionAttribute(element) ?? CGPoint.zero,
             size:        getSizeAttribute(element) ?? CGSize.zero
         )
+        
+        print(getStringAttribute(element, kAXHeaderAttribute as CFString) ?? "none")
         
         if elementInfo != eInfo { self.elementInfo = eInfo; }
         
