@@ -4,9 +4,13 @@ import SwiftUI
 
 @main
 struct MacUIDynamicPointerApp: App {
+    var state = State()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(state)
         }
     }
 }
+

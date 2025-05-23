@@ -6,17 +6,22 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		219A443F2DE0CA140082525C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A443B2DE0CA140082525C /* ContentView.swift */; };
+		219A44402DE0CA140082525C /* MacUIDynamicPointerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */; };
+		219A44412DE0CA140082525C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219A443A2DE0CA140082525C /* Assets.xcassets */; };
+		219A44512DE0CE1A0082525C /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219A44502DE0CE180082525C /* State.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		219A442B2DE0CA0C0082525C /* MacUIDynamicPointer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacUIDynamicPointer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		219A443A2DE0CA140082525C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		219A443B2DE0CA140082525C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		219A443C2DE0CA140082525C /* MacUIDynamicPointer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacUIDynamicPointer.entitlements; sourceTree = "<group>"; };
+		219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacUIDynamicPointerApp.swift; sourceTree = "<group>"; };
+		219A444F2DE0CB950082525C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		219A44502DE0CE180082525C /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		219A442D2DE0CA0C0082525C /* MacUIDynamicPointer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MacUIDynamicPointer;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		219A44282DE0CA0C0082525C /* Frameworks */ = {
@@ -32,7 +37,7 @@
 		219A44222DE0CA0C0082525C = {
 			isa = PBXGroup;
 			children = (
-				219A442D2DE0CA0C0082525C /* MacUIDynamicPointer */,
+				219A443E2DE0CA140082525C /* MacUIDynamicPointer */,
 				219A442C2DE0CA0C0082525C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +48,19 @@
 				219A442B2DE0CA0C0082525C /* MacUIDynamicPointer.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		219A443E2DE0CA140082525C /* MacUIDynamicPointer */ = {
+			isa = PBXGroup;
+			children = (
+				219A44502DE0CE180082525C /* State.swift */,
+				219A443B2DE0CA140082525C /* ContentView.swift */,
+				219A443D2DE0CA140082525C /* MacUIDynamicPointerApp.swift */,
+				219A443A2DE0CA140082525C /* Assets.xcassets */,
+				219A444F2DE0CB950082525C /* Info.plist */,
+				219A443C2DE0CA140082525C /* MacUIDynamicPointer.entitlements */,
+			);
+			path = MacUIDynamicPointer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +77,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				219A442D2DE0CA0C0082525C /* MacUIDynamicPointer */,
 			);
 			name = MacUIDynamicPointer;
 			packageProductDependencies = (
@@ -109,6 +124,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219A44412DE0CA140082525C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +135,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219A443F2DE0CA140082525C /* ContentView.swift in Sources */,
+				219A44402DE0CA140082525C /* MacUIDynamicPointerApp.swift in Sources */,
+				219A44512DE0CE1A0082525C /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,14 +274,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7TTKAZX72;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacUIDynamicPointer/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xezrunner.MacUIDynamicPointer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,14 +303,16 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W7TTKAZX72;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacUIDynamicPointer/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xezrunner.MacUIDynamicPointer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
